@@ -12,36 +12,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <link rel="stylesheet" href="styles.css" />
-    <script src="main.js"></script>
 </head>
 
 <body>
-    <form id="input_data" class="col s12">
+    <form id="input_data" class="col s12" name="input_data">
         <div class="row">
             <div class="input-field col s2">
-                <input placeholder="Number of Rows" id="rows" type="number" min="3" class="validate">
+                <label for="rows"></label>
+                <input placeholder="Number of Rows" id="rows" name="rows" type="number" min="3" class="validate">
             </div>
             <div class="input-field col s2">
-                <input placeholder="Number of Columns" id="columns" type="number" min="3" class="validate">
+                <label for="columns"></label>
+                <input placeholder="Number of Columns" id="columns" name="columns" type="number" min="3" class="validate">
             </div>
             <div class="input-field col s2">
-                <input placeholder="X coordinate" id="x_coordinate" type="number" min="0" class="validate">
+                <label for="x_coordinate"></label>
+                <input placeholder="X coordinate" id="x_coordinate" name="x_coordinate" type="number" min="0" class="validate">
             </div>
             <div class="input-field col s2">
-                <input placeholder="Y coordinate" id="y_coordinate" type="number" min="0" class="validate">
+                <label for="y_coordinate"></label>
+                <input placeholder="Y coordinate" id="y_coordinate" name="y_coordinate" type="number" min="0" class="validate">
             </div>
             <div class="input-field col s2">
-                <input placeholder="Direction Facing" id="direction" type="text" class="validate">
+                <label for="direction"></label>
+                <input placeholder="Direction Facing" id="direction" name="direction" type="text" class="validate">
             </div>
             <div class="input-field col s2">
-                <input placeholder="Navigation commands" id="movement_path" type="text" class="validate">
+                <label for="movement_path"></label>
+                <input placeholder="Navigation commands" id="movement_path" name="movement_path" type="text" class="validate">
             </div>
         </div>
         <div class="row center-align">
-                <button class="btn waves-effect waves-light" type="submit" id="submit_input_data">Submit</button>
+            <button class="btn waves-effect waves-light" type="submit" id="submit_input_data">Submit</button>
         </div>
     </form>
+    
+    <div id="grid" class="center-align"></div>
 
+    <script src="Cell.js"></script>    
+    <script src="Grid.js"></script>    
+    <script src="main.js"></script>
 </body>
 
 </html>

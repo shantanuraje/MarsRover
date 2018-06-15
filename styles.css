@@ -2,3 +2,25 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.grid {
+    border: 1px solid #ddd;
+    display: inline-block;
+    padding: 1px;
+}
+.grid_row {
+    margin: 0;
+}
+.cell{
+	border: 1px solid #ddd;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 1px;
+    vertical-align: top;    
+}
+
+#rover_character{
+    margin: 0;
+    text-align: center;
+}
