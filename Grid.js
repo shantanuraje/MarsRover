@@ -4,8 +4,8 @@ function Grid(rows, cols) {
     this.gridArray = [];
     this.rows = Number(rows);
     this.cols = Number(cols);
-    this.startingLocation;
-    this.currentLocation;
+    this.startingLocation = {};
+    this.currentLocation = {};
     this.direction;
 
     this.render = function () {
@@ -26,6 +26,35 @@ function Grid(rows, cols) {
 
         }
         console.log(this.gridArray);
-        
+
     }
+
+    this.placeRover = function (x_coord, y_coord, direction) {
+        //set starting and current location of rover
+        this.startingLocation.x = Number(x_coord);
+        this.startingLocation.y = Number(y_coord);
+        this.direction = direction;
+        // turn background color of that cell to red
+        this.gridArray[x_coord][y_coord].htmlNode.style.backgroundColor = 'red';
+        //based on direction input by user, place HtML code of respective direction into the cell
+        switch (direction.toUpperCase()) {
+            case 'N':
+                this.gridArray[x_coord][y_coord].htmlNode.innerHTML  = "<h3 id='rover_character'>&#8593;</h3>"                
+                break;
+            case 'S':
+                this.gridArray[x_coord][y_coord].htmlNode.innerHTML  = "<h3 id='rover_character'>&#8595;</h3>"            
+                break;
+            case 'E':
+                this.gridArray[x_coord][y_coord].htmlNode.innerHTML  = "<h3 id='rover_character'>&#8594;</h3>"            
+                break;
+            case 'W':
+                this.gridArray[x_coord][y_coord].htmlNode.innerHTML  = "<h3 id='rover_character'>&#8592;</h3>"            
+                break;
+    
+            default:
+                console.log("invalid direction");
+        }
+
+    }
+
 }

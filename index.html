@@ -19,11 +19,11 @@
         <div class="row">
             <div class="input-field col s2">
                 <label for="rows"></label>
-                <input placeholder="Number of Rows" id="rows" name="rows" type="number" min="3" class="validate">
+                <input placeholder="Number of Rows" id="rows" name="rows" type="number" min="3" max="20" class="validate" required>
             </div>
             <div class="input-field col s2">
                 <label for="columns"></label>
-                <input placeholder="Number of Columns" id="columns" name="columns" type="number" min="3" class="validate">
+                <input placeholder="Number of Columns" id="columns" name="columns" type="number" min="3" max="20" class="validate" required>
             </div>
             <div class="input-field col s2">
                 <label for="x_coordinate"></label>
@@ -35,11 +35,11 @@
             </div>
             <div class="input-field col s2">
                 <label for="direction"></label>
-                <input placeholder="Direction Facing" id="direction" name="direction" type="text" class="validate">
+                <input placeholder="Direction Facing" id="direction" name="direction" type="text" class="validate" pattern="[NnSsEeWe]">
             </div>
             <div class="input-field col s2">
                 <label for="movement_path"></label>
-                <input placeholder="Navigation commands" id="movement_path" name="movement_path" type="text" class="validate">
+                <input placeholder="Navigation commands" id="movement_path" name="movement_path" type="text" class="validate" pattern="[FfBbLlRr]+">
             </div>
         </div>
         <div class="row center-align">
