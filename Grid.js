@@ -11,6 +11,7 @@ function Grid(rows, cols) {
     this.render = function () {
         var gridElement = document.getElementById("grid");
         for (let i = 0; i < this.rows; i++) {
+            
             const rowDiv = document.createElement("div");
             rowDiv.className = "grid_row";
             gridElement.append(rowDiv);
@@ -20,6 +21,16 @@ function Grid(rows, cols) {
                 cellDiv.className = "cell";
                 rowDiv.appendChild(cellDiv);
                 const cell = new Cell(cellDiv, i, j);
+
+                //generate random x,y coordinate as obstacle
+                obstacleCoordinates = {'x': Math.round(Math.random()*this.rows), 'y': Math.round(Math.random()*this.cols)}
+                //if either i or j is equal to generated x and y make that cell an obstacle
+                if(i == obstacleCoordinates.x || j == obstacleCoordinates.y){
+                    console.log(obstacleCoordinates.x,obstacleCoordinates.y);
+                    cell.obstacle = true;
+                    cellDiv.style.backgroundColor = 'black';
+                }
+
                 this.gridArray[i].push(cell);
 
             }

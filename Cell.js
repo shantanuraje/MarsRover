@@ -4,4 +4,5 @@ function Cell( htmlNode, x, y ) {
     this.htmlNode = htmlNode; 
     this.x = x;
     this.y = y;
+    this.obstacle = false;
 }
