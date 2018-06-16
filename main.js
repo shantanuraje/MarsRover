@@ -17,48 +17,22 @@ inputForm.addEventListener("submit", function (event) {
     //render the grid
     grid.render(inputData['x_coordinate'], inputData['y_coordinate']);
     setTimeout(function () { grid.placeRover(inputData['x_coordinate'], inputData['y_coordinate'], inputData['direction']) }, 1000);
-
-    for (let i = 0; i < inputData['movement_path'].length; i++) {
-        const move = inputData['movement_path'][i];
-
-        // setTimeout(function () {}, 3000);
-        switch (move.toUpperCase()) {
-            case 'F':
-                if (!grid.obstacleEncountered) {
-                    setTimeout(function () { grid.moveForward(); }, (i + 1) * 2000);
-                    break;
-                }
-                console.log(move, grid.obstacleEncountered);
-            case 'B':
-                if (!grid.obstacleEncountered) {
-                    console.log(move, grid.obstacleEncountered);
-                    setTimeout(function () { grid.moveBackward(); }, (i + 1) * 2000);
-                }
-
-                break;
-            case 'L':
-                if (!grid.obstacleEncountered) {
-                    console.log(move, grid.obstacleEncountered);
-                    setTimeout(function () { grid.moveLeft(); }, (i + 1) * 2000);
-                }
-
-                break;
-            case 'R':
-                if (!grid.obstacleEncountered) {
-                    console.log(move, grid.obstacleEncountered);
-                    setTimeout(function () { grid.moveRight(); }, (i + 1) * 2000);
-                }
-
-                break;
-            default:
-                break;
+    
+    //read path character by character and move rover 
+    let i = 0;
+    let length = inputData['movement_path'].length;
+    let loop = setInterval(function(){
+        if(i >= length || grid.obstacleEncountered){
+            clearInterval(loop);
+            return;
         }
 
-        console.log(grid.obstacleEncountered);
-
-
-
-    }
+        let move = inputData['movement_path'][i++].toUpperCase();
+        console.log(move, grid.obstacleEncountered);
+        
+        grid[move]();
+        
+    }, 1000);
 
 })
 

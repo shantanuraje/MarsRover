@@ -1,5 +1,29 @@
 //definition of Grid
 //stores all parameters and functions related to the grid
+const movementAdditions = {
+    //Facing north
+    FN: [0][1],
+    BN: [0][-1],
+    LN: [-1][0],
+    RN: [1][0],
+    //Facing east
+    FE: [1][0],
+    BE: [-1][0],
+    LE: [0][1],
+    RE: [0][-1],
+    //Facing south
+    FS: [0][-1],
+    BS: [0][1],
+    LS: [1][0],
+    RS: [-1][0],
+    //Facing west
+    FW: [-1][0],
+    BW: [1][0],
+    LW: [0][-1],
+    RW: [0][1],
+};
+
+
 const northRover = "<h3 id='rover_character'>&#8593;</h3>"
 const southRover = "<h3 id='rover_character'>&#8595;</h3>"
 const eastRover = "<h3 id='rover_character'>&#8594;</h3>"
@@ -29,7 +53,7 @@ function Grid(rows, cols) {
 
                 // generate random x,y coordinate as obstacle
                 obstacleCoordinates = { 'x': Math.round(Math.random() * this.rows), 'y': Math.round(Math.random() * this.cols) }
-                // if either i or j is equal to generated x and y make that cell an obstacle
+                // if either i or j is equal to generated x and y make that cell an obstacle and the coordinates are not equal to the rovers
                 if ((i == obstacleCoordinates.x || j == obstacleCoordinates.y) && (i != xCoord && j != yCoord)) {
                     // console.log(obstacleCoordinates.x, obstacleCoordinates.y);
                     cell.obstacle = true;
@@ -82,6 +106,10 @@ function Grid(rows, cols) {
         }
     }
 
+    this.moveDirection = function(moveDirection){
+        this.direction.toUpperCase();
+    }
+
     this.move = function (newLocation) {
         this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.style.backgroundColor = 'white';
         this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
@@ -107,7 +135,7 @@ function Grid(rows, cols) {
         }
     }
 
-    this.moveForward = function () {
+    this.F = function () {
         // console.log(this.direction);
         const newLocation = { 'x': this.currentLocation.x, 'y': this.currentLocation.y };
 
@@ -186,7 +214,7 @@ function Grid(rows, cols) {
         }
     }
 
-    this.moveBackward = function () {
+    this.B = function () {
         // console.log(this.direction);
         const newLocation = { 'x': this.currentLocation.x, 'y': this.currentLocation.y };
 
@@ -265,7 +293,7 @@ function Grid(rows, cols) {
         }
     }
 
-    this.moveLeft = function () {
+    this.L = function () {
         // console.log(this.direction);
         const newLocation = { 'x': this.currentLocation.x, 'y': this.currentLocation.y };
 
@@ -344,7 +372,7 @@ function Grid(rows, cols) {
         }
     }
 
-    this.moveRight = function () {
+    this.R = function () {
         // console.log(this.direction);
         const newLocation = { 'x': this.currentLocation.x, 'y': this.currentLocation.y };
 

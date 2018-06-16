@@ -19,32 +19,34 @@
     <form id="input_data" class="col s12" name="input_data">
         <div class="row">
             <div class="input-field col s2">
-                <label for="rows"></label>
+                <label for="rows"># of rows</label>
                 <input value="12" placeholder="Number of Rows" id="rows" name="rows" type="number" min="3" max="20" class="validate" required>
             </div>
             <div class="input-field col s2">
-                <label for="columns"></label>
+                <label for="columns"># of rows</label>
                 <input value="12" placeholder="Number of Columns" id="columns" name="columns" type="number" min="3" max="20" class="validate" required>
             </div>
             <div class="input-field col s2">
-                <label for="x_coordinate"></label>
+                <label for="x_coordinate">X coordiante</label>
                 <input value="1" placeholder="X coordinate" id="x_coordinate" name="x_coordinate" type="number" min="0" class="validate">
             </div>
             <div class="input-field col s2">
-                <label for="y_coordinate"></label>
+                <label for="y_coordinate">Y coordinate</label>
                 <input value="1" placeholder="Y coordinate" id="y_coordinate" name="y_coordinate" type="number" min="0" class="validate">
             </div>
             <div class="input-field col s2">
-                <label for="direction"></label>
+                <label for="direction">Direction</label>
                 <input value="N" placeholder="Direction Facing" id="direction" name="direction" type="text" class="validate" pattern="[NnSsEeWe]">
             </div>
             <div class="input-field col s2">
-                <label for="movement_path"></label>
+                <label for="movement_path">Path</label>
                 <input value="llffbbRR" placeholder="Navigation commands" id="movement_path" name="movement_path" type="text" class="validate" pattern="[FfBbLlRr]+">
             </div>
         </div>
-        <div class="row center-align">
-            <button class="btn waves-effect waves-light" type="submit" id="submit_input_data">Submit</button>
+        <div class="row right-align">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light" type="submit" id="submit_input_data">Submit</button>
+            </div>
         </div>
     </form>
 
