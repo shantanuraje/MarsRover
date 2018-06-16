@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -19,38 +20,52 @@
         <div class="row">
             <div class="input-field col s2">
                 <label for="rows"></label>
-                <input placeholder="Number of Rows" id="rows" name="rows" type="number" min="3" max="20" class="validate" required>
+                <input value="12" placeholder="Number of Rows" id="rows" name="rows" type="number" min="3" max="20" class="validate" required>
             </div>
             <div class="input-field col s2">
                 <label for="columns"></label>
-                <input placeholder="Number of Columns" id="columns" name="columns" type="number" min="3" max="20" class="validate" required>
+                <input value="12" placeholder="Number of Columns" id="columns" name="columns" type="number" min="3" max="20" class="validate" required>
             </div>
             <div class="input-field col s2">
                 <label for="x_coordinate"></label>
-                <input placeholder="X coordinate" id="x_coordinate" name="x_coordinate" type="number" min="0" class="validate">
+                <input value="1" placeholder="X coordinate" id="x_coordinate" name="x_coordinate" type="number" min="0" class="validate">
             </div>
             <div class="input-field col s2">
                 <label for="y_coordinate"></label>
-                <input placeholder="Y coordinate" id="y_coordinate" name="y_coordinate" type="number" min="0" class="validate">
+                <input value="1" placeholder="Y coordinate" id="y_coordinate" name="y_coordinate" type="number" min="0" class="validate">
             </div>
             <div class="input-field col s2">
                 <label for="direction"></label>
-                <input placeholder="Direction Facing" id="direction" name="direction" type="text" class="validate" pattern="[NnSsEeWe]">
+                <input value="N" placeholder="Direction Facing" id="direction" name="direction" type="text" class="validate" pattern="[NnSsEeWe]">
             </div>
             <div class="input-field col s2">
                 <label for="movement_path"></label>
-                <input placeholder="Navigation commands" id="movement_path" name="movement_path" type="text" class="validate" pattern="[FfBbLlRr]+">
+                <input value="llffbbRR" placeholder="Navigation commands" id="movement_path" name="movement_path" type="text" class="validate" pattern="[FfBbLlRr]+">
             </div>
         </div>
         <div class="row center-align">
             <button class="btn waves-effect waves-light" type="submit" id="submit_input_data">Submit</button>
         </div>
     </form>
-    
+
+    <div id="navigationButton" class="center-align">
+        <a id="forwardButton" class="btn-floating waves-effect waves-light red">
+            <i class="material-icons">arrow_upward</i>
+        </a>
+        <a id="backwardButton" class="btn-floating waves-effect waves-light red">
+            <i class="material-icons">arrow_downward</i>
+        </a>
+        <a id="leftButton" class="btn-floating waves-effect waves-light red">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        <a id="rightButton" class="btn-floating waves-effect waves-light red">
+            <i class="material-icons">arrow_forward</i>
+        </a>
+    </div>
     <div id="grid" class="center-align"></div>
 
-    <script src="Cell.js"></script>    
-    <script src="Grid.js"></script>    
+    <script src="Cell.js"></script>
+    <script src="Grid.js"></script>
     <script src="main.js"></script>
 </body>
 
