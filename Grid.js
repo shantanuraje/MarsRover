@@ -106,7 +106,7 @@ function Grid(rows, cols) {
         }
     }
 
-    this.moveDirection = function(moveDirection){
+    this.moveDirection = function (moveDirection) {
         this.direction.toUpperCase();
     }
 
@@ -149,7 +149,7 @@ function Grid(rows, cols) {
                 if (this.isObstacle(newLocation.x, newLocation.y)) {
                     this.obstacleEncountered = true;
                     console.log(this.obstacleEncountered);
-                    
+
                     alert("Obstacle detected");
                     break;
                 } else {
@@ -166,7 +166,7 @@ function Grid(rows, cols) {
                 if (this.isObstacle(newLocation.x, newLocation.y)) {
                     this.obstacleEncountered = true;
                     console.log(this.obstacleEncountered);
-                    
+
                     alert("Obstacle detected");
                     break;
                 } else {
@@ -183,7 +183,7 @@ function Grid(rows, cols) {
                 if (this.isObstacle(newLocation.x, newLocation.y)) {
                     this.obstacleEncountered = true;
                     console.log(this.obstacleEncountered);
-                    
+
                     alert("Obstacle detected");
                     break;
                 } else {
@@ -200,7 +200,7 @@ function Grid(rows, cols) {
                 if (this.isObstacle(newLocation.x, newLocation.y)) {
                     this.obstacleEncountered = true;
                     console.log(this.obstacleEncountered);
-                    
+
                     alert("Obstacle detected");
                     break;
                 } else {
@@ -228,7 +228,7 @@ function Grid(rows, cols) {
                 if (this.isObstacle(newLocation.x, newLocation.y)) {
                     this.obstacleEncountered = true;
                     console.log(this.obstacleEncountered);
-                    
+
                     alert("Obstacle detected");
                     break;
                 } else {
@@ -245,7 +245,7 @@ function Grid(rows, cols) {
                 if (this.isObstacle(newLocation.x, newLocation.y)) {
                     this.obstacleEncountered = true;
                     console.log(this.obstacleEncountered);
-                    
+
                     alert("Obstacle detected");
                     break;
                 } else {
@@ -262,7 +262,7 @@ function Grid(rows, cols) {
                 if (this.isObstacle(newLocation.x, newLocation.y)) {
                     this.obstacleEncountered = true;
                     console.log(this.obstacleEncountered);
-                    
+
                     alert("Obstacle detected");
                     break;
                 } else {
@@ -279,7 +279,7 @@ function Grid(rows, cols) {
                 if (this.isObstacle(newLocation.x, newLocation.y)) {
                     this.obstacleEncountered = true;
                     console.log(this.obstacleEncountered);
-                    
+
                     alert("Obstacle detected");
                     break;
                 } else {
@@ -294,160 +294,62 @@ function Grid(rows, cols) {
     }
 
     this.L = function () {
-        // console.log(this.direction);
-        const newLocation = { 'x': this.currentLocation.x, 'y': this.currentLocation.y };
-
-        switch (this.direction.toUpperCase()) {
+        var currentDirection = this.direction.toUpperCase()
+        switch (currentDirection) {
             case 'N':
-                if (this.currentLocation.y > 0 ) {
-                    newLocation.y = this.currentLocation.y - 1
-                } else {
-                    newLocation.y = this.cols - 1;
-                }
-                if (this.isObstacle(newLocation.x, newLocation.y)) {
-                    this.obstacleEncountered = true;
-                    console.log(this.obstacleEncountered);
-                    
-                    alert("Obstacle detected");
-                    break;
-                } else {
-                    this.move(newLocation);
-                }
+                this.direction = 'W'
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.innerHTML = westRover;
                 break;
-
             case 'S':
-                if (this.currentLocation.y < this.cols - 1) {
-                    newLocation.y = this.currentLocation.y + 1
-                } else {
-                    newLocation.y = 0
-                }
-                if (this.isObstacle(newLocation.x, newLocation.y)) {
-                    this.obstacleEncountered = true;
-                    console.log(this.obstacleEncountered);
-                    
-                    alert("Obstacle detected");
-                    break;
-                } else {
-                    this.move(newLocation);
-                }
+                this.direction = 'E'
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.innerHTML = eastRover;
                 break;
-
             case 'E':
-                if (this.currentLocation.x > 0) {
-                    newLocation.x = this.currentLocation.x - 1
-                } else {
-                    newLocation.x = this.cols - 1
-                }
-                if (this.isObstacle(newLocation.x, newLocation.y)) {
-                    this.obstacleEncountered = true;
-                    console.log(this.obstacleEncountered);
-                    
-                    alert("Obstacle detected");
-                    break;
-                } else {
-                    this.move(newLocation);
-                }
+                this.direction = 'N'
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.innerHTML = northRover;
                 break;
-
             case 'W':
-                if (this.currentLocation.x < this.rows - 1) {
-                    newLocation.x = this.currentLocation.x + 1
-                } else {
-                    newLocation.x = 0
-                }
-                if (this.isObstacle(newLocation.x, newLocation.y)) {
-                    this.obstacleEncountered = true;
-                    console.log(this.obstacleEncountered);
-                    
-                    alert("Obstacle detected");
-                    break;
-                } else {
-                    this.move(newLocation);
-                }
+                this.direction = 'S'
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.innerHTML = southRover;
                 break;
-            default:
-                console.log("Invalid Direction");
 
+            default:
                 break;
         }
     }
 
     this.R = function () {
-        // console.log(this.direction);
-        const newLocation = { 'x': this.currentLocation.x, 'y': this.currentLocation.y };
-
-        switch (this.direction.toUpperCase()) {
+        var currentDirection = this.direction.toUpperCase()
+        switch (currentDirection) {
             case 'N':
-                if (this.currentLocation.y < this.cols - 1 ) {
-                    newLocation.y = this.currentLocation.y + 1
-                } else {
-                    newLocation.y = 0;
-                }
-                if (this.isObstacle(newLocation.x, newLocation.y)) {
-                    this.obstacleEncountered = true;
-                    console.log(this.obstacleEncountered);
-                    
-                    alert("Obstacle detected");
-                    break;
-                } else {
-                    this.move(newLocation);
-                }
+                this.direction = 'E'
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.innerHTML = eastRover;
                 break;
-
             case 'S':
-                if (this.currentLocation.y > 0) {
-                    newLocation.y = this.currentLocation.y - 1
-                } else {
-                    newLocation.y = this.cols - 1
-                }
-                if (this.isObstacle(newLocation.x, newLocation.y)) {
-                    this.obstacleEncountered = true;
-                    console.log(this.obstacleEncountered);
-                    
-                    alert("Obstacle detected");
-                    break;
-                } else {
-                    this.move(newLocation);
-                }
+                this.direction = 'W'
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.innerHTML = westRover;
                 break;
-
             case 'E':
-                if (this.currentLocation.x < this.rows - 1) {
-                    newLocation.x = this.currentLocation.x + 1
-                } else {
-                    newLocation.x = 0
-                }
-                if (this.isObstacle(newLocation.x, newLocation.y)) {
-                    this.obstacleEncountered = true;
-                    console.log(this.obstacleEncountered);
-                    
-                    alert("Obstacle detected");
-                    break;
-                } else {
-                    this.move(newLocation);
-                }
+                this.direction = 'S'
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.innerHTML = southRover;
                 break;
-
             case 'W':
-                if (this.currentLocation.x > 0) {
-                    newLocation.x = this.currentLocation.x - 1
-                } else {
-                    newLocation.x = this.rows - 1;
-                }
-                if (this.isObstacle(newLocation.x, newLocation.y)) {
-                    this.obstacleEncountered = true;
-                    console.log(this.obstacleEncountered);
-                    
-                    alert("Obstacle detected");
-                    break;
-                } else {
-                    this.move(newLocation);
-                }
+                this.direction = 'N'
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.removeChild(document.getElementById('rover_character'));
+                this.gridArray[this.currentLocation.x][this.currentLocation.y].htmlNode.innerHTML = northRover;
                 break;
-            default:
-                console.log("Invalid Direction");
 
+            default:
                 break;
         }
-    }    
+    }
+    
+
 }

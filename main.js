@@ -16,7 +16,9 @@ inputForm.addEventListener("submit", function (event) {
     grid = new Grid(inputData['rows'], inputData['columns']);
     //render the grid
     grid.render(inputData['x_coordinate'], inputData['y_coordinate']);
-    setTimeout(function () { grid.placeRover(inputData['x_coordinate'], inputData['y_coordinate'], inputData['direction']) }, 1000);
+    // setTimeout(function () { grid.placeRover(inputData['x_coordinate'], inputData['y_coordinate'], inputData['direction']) }, 2000);
+    grid.placeRover(inputData['x_coordinate'], inputData['y_coordinate'], inputData['direction'])
+    console.log(grid.direction);
     
     //read path character by character and move rover 
     let i = 0;
@@ -43,18 +45,18 @@ var left = document.getElementById("leftButton");
 var right = document.getElementById("rightButton");
 
 forward.onclick = function () {
-    console.log("moveForward");
-    grid.moveForward();
+    console.log("Moving Forward");
+    grid.F();
 }
 backward.onclick = function () {
-    console.log("moveBackward");
-    grid.moveBackward();
+    console.log("Moving Backward");
+    grid.B();
 }
 left.onclick = function () {
-    console.log("moveLeft");
-    grid.moveLeft();
+    console.log("turning left");
+    grid.L();
 }
 right.onclick = function () {
-    console.log("moveRight");
-    grid.moveRight();
+    console.log("turning right");
+    grid.R();
 }
