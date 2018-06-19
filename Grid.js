@@ -1,29 +1,5 @@
 //definition of Grid
 //stores all parameters and functions related to the grid
-const movementAdditions = {
-    //Facing north
-    FN: [0][1],
-    BN: [0][-1],
-    LN: [-1][0],
-    RN: [1][0],
-    //Facing east
-    FE: [1][0],
-    BE: [-1][0],
-    LE: [0][1],
-    RE: [0][-1],
-    //Facing south
-    FS: [0][-1],
-    BS: [0][1],
-    LS: [1][0],
-    RS: [-1][0],
-    //Facing west
-    FW: [-1][0],
-    BW: [1][0],
-    LW: [0][-1],
-    RW: [0][1],
-};
-
-
 const northRover = "<h3 id='rover_character'>&#8593;</h3>"
 const southRover = "<h3 id='rover_character'>&#8595;</h3>"
 const eastRover = "<h3 id='rover_character'>&#8594;</h3>"
@@ -38,6 +14,8 @@ function Grid(rows, cols) {
     this.obstacleEncountered = false;
 
     this.render = function (xCoord, yCoord) {
+        console.log("Render");
+        
         var gridElement = document.getElementById("grid");
         for (let i = 0; i < this.rows; i++) {
 
@@ -70,6 +48,8 @@ function Grid(rows, cols) {
     }
 
     this.placeRover = function (x_coord, y_coord, direction) {
+        console.log("Place rover");
+        
         //set starting and current location of rover
         this.startingLocation.x = Number(x_coord);
         this.startingLocation.y = Number(y_coord);
